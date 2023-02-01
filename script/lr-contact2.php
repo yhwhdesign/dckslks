@@ -10,20 +10,19 @@ require '../PHPMailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);                             // Passing `true` enables exceptions
 
-// Adding in data from form
-$coname = htmlspecialchars($_POST['coname']);
-$rltrname = htmlspecialchars($_POST['rltrname']);
-$rltremail = htmlspecialchars($_POST['rltremail']);
-$clntname = htmlspecialchars($_POST['clntname']);
-$clsngdate = htmlspecialchars($_POST['clsngdate']);
-$clntaddy = htmlspecialchars($_POST['clntaddy']);
-$clntph = htmlspecialchars($_POST['clntph']);
-$notes = htmlspecialchars($_POST['notes']);
+try {
+    // Adding in data from form
+    $coname = htmlspecialchars($_POST['coname']);
+    $rltrname = htmlspecialchars($_POST['rltrname']);
+    $rltremail = htmlspecialchars($_POST['rltremail']);
+    $clntname = htmlspecialchars($_POST['clntname']);
+    $clsngdate = htmlspecialchars($_POST['clsngdate']);
+    $clntaddy = htmlspecialchars($_POST['clntaddy']);
+    $clntph = htmlspecialchars($_POST['clntph']);
+    $notes = htmlspecialchars($_POST['notes']);
 
-
-
-//Server settings
-    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+    //Server settings
+    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.dreamhost.com';                  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -32,6 +31,7 @@ $notes = htmlspecialchars($_POST['notes']);
     $mail->SMTPSecure = 'ssl';                            // Enable SSL encryption, TLS also accepted with port 465
     $mail->Port = 465;                                    // TCP port to connect to
 
+    // Recips
     $mail->From = "testing@docslocsmk.burntyokes.com";
     $mail->FromName = "Docs Locs LR";
     $mail->addAddress("docslocs@gmail.com", "Docs Locs LR");
@@ -53,11 +53,11 @@ $notes = htmlspecialchars($_POST['notes']);
 
     $mail->Body = $message;
 
-    try {
-        $mail->send();
-        echo "Message has been sent sucessfully";
-    } catch (Exception $e) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-    }
+    $mail->send();
+    echo 'Message has been sent!';
+} catch (Exception $e) {
+    echo 'Message was not sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}
 
-    ?>
+?>

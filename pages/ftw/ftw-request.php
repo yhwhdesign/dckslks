@@ -115,6 +115,5 @@
       </div>
       <!-- end register form -->
     <script src="../../js/ftw-script.js"></script>
-    <script src="../../js/ui.js"></script>
 </body>
 </html>

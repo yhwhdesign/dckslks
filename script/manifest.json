@@ -1,7 +1,7 @@
 {
     "name" : "Docs Locs Masterkey",
     "short_name" : "Docs Locs MK",
-    "start_url" : "/index.php",
+    "start_url" : "/",
     "display" : "standalone",
     "background_color" : "#FFFFFF",
     "theme_color" : "#EEEEEE",

@@ -205,7 +205,7 @@
 	$.fn.smartWebBanner.defaults = {
 		title: 'Web App', // What the title of the "app" should be in the banner
 		titleSwap: true, // Whether or not to use the title specified here as the default label of the home screen icon (otherwise uses the page's "apple-mobile-web-app-title" meta tag or <title> tag as a fallback)
-		url: '', // URL to mask the page as before saving to home screen (allows for having it save the homepage of a site no matter what page the visitor is on)
+		url: '/', // URL to mask the page as before saving to home screen (allows for having it save the homepage of a site no matter what page the visitor is on)
 		author: 'Save to Home Screen', // What the author of the "app" should be in the banner
 		speedIn: 300, // Show animation speed of the banner
 		speedOut: 400, // Close animation speed of the banner
