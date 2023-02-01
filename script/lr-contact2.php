@@ -34,8 +34,8 @@ $notes = htmlspecialchars($_POST['notes']);
 
     $mail->From = "testing@docslocsmk.burntyokes.com";
     $mail->FromName = "Docs Locs LR";
-    $mail->addAddress("docslocs@gmail.com", "Docs Locs LR");
-    $mail->AddCC("jasen.burkett@gmail.com", "YhwhDesign");
+    $mail->addAddress("jasen.burkett@gmail.com", "Docs Locs LR");
+    $mail->AddCC("docslocs@gmail.com", "YhwhDesign");
     
     $mail->isHTML(true);
     $mail->Subject = "Docs Locs LR - Request";
