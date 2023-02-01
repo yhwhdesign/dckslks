@@ -149,7 +149,8 @@
 				$('#smartWebBanner,#swb-instructions').addClass('ipad');
 			}
 			if(!iPad && !iPhone){
-				$('#swb-instructions').html('<strong>It appears this isn\'t an iOS device.</strong> This is a preview of the iPhone popup design though.');
+				// $('#swb-instructions').html('<strong>It appears this isn\'t an iOS device.</strong> You should have another optio'n);
+                $('#smartWebBanner').addClass('hideme');
 			}
 			if(opts.showFree){
 				$('#smartWebBanner').addClass('free');
@@ -203,7 +204,7 @@
 
 	// override these globally if you like (they are all optional)
 	$.fn.smartWebBanner.defaults = {
-		title: 'Web App', // What the title of the "app" should be in the banner
+		title: 'DocsLocs MK', // What the title of the "app" should be in the banner
 		titleSwap: true, // Whether or not to use the title specified here as the default label of the home screen icon (otherwise uses the page's "apple-mobile-web-app-title" meta tag or <title> tag as a fallback)
 		url: '/', // URL to mask the page as before saving to home screen (allows for having it save the homepage of a site no matter what page the visitor is on)
 		author: 'Save to Home Screen', // What the author of the "app" should be in the banner
@@ -213,8 +214,8 @@
 		iconOverwrite: '', // Force the URL of the icon (even if found via <link> tag)
 		iconGloss: 'auto', // Whether or not to show the gloss over the icon (true/false/"auto" [auto doesn't show if precomposed <link> tag is used])
 		showFree: false, // Whether or not to show "Free" at bottom of info
-		daysHidden: 15, // Duration to hide the banner after being closed (0 = always show banner)
-		daysReminder: 90, // Duration to hide the banner after "Save" is clicked *separate from when the close button is clicked* (0 = always show banner)
+		daysHidden: 30, // Duration to hide the banner after being closed (0 = always show banner)
+		daysReminder: 300, // Duration to hide the banner after "Save" is clicked *separate from when the close button is clicked* (0 = always show banner)
 		popupDuration: 6000, // How long the instructions are shown before fading out (0 = show until manually closed)
 		popupSpeedIn: 200, // Show animation speed of the popup
 		popupSpeedOut: 900, // Close animation speed of the popup
@@ -226,9 +227,9 @@
 
 jQuery(document).ready(function(){
 	if(navigator.userAgent.indexOf('Firefox')!=-1)
-		jQuery('#webkit-alert').prepend('You appear to be using Firefox, ').fadeIn(400);
+		jQuery('#webkit-alert').prepend('You appear to be using Firefox, ').fadeIn(200);
 	if(navigator.userAgent.indexOf('MSIE')!=-1)
-		jQuery('#webkit-alert').prepend('You appear to be using Internet Explorer, ').fadeIn(400);
+		jQuery('#webkit-alert').prepend('You appear to be using Internet Explorer, ').fadeIn(200);
 	window.scrollTo(0,0);
 	// Show/hide demo links
 	jQuery('a[href="#hide"]').on('click',function(){
@@ -266,8 +267,8 @@ jQuery(document).ready(function(){
 	});
 	jQuery().smartWebBanner({
 		title: 'Add To Home Screen',
-		author: 'Apple - 1.Share | 2.Then Add',
-		debug: true
+		author: '',
+		debug: false
 	});
 
 });
